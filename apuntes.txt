@@ -1,0 +1,24 @@
+TIPOS DE DATOS:
+
+-Numéricos
+    int     short
+            long
+            usigned
+    float
+
+-Carácteres
+    char
+
+-Arrays
+    vector que tienes que saber desde el principio el tamaño
+    del primero (0) al último (n-1). 
+    siempre hay que poner un elemento más porque será /0
+    Para calcular la longitud: 
+        sizeof(vector) te da el tamaño en bytes. Así que,
+    para saber el número de componentes hay que hacer: sizeof(vector)/sizeof(vector[v])
+
+ESTRUCTURAS DE CONTROL:
+
+-Condicionales
+    if
+-Iterativas
