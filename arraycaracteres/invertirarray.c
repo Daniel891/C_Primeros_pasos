@@ -4,20 +4,21 @@
 
 int main ()
 {
-    char arr[10],a;
-    int l,i;
+    char arr[10];
+    char a;
+    int l,i,larg;
 
     gets(arr);
     arr[10]='\0';
-    
 
     l=strlen(arr);
+    larg=(int) l/2;
 
-    for (i=0;i<(l-1)/2;i++){
+    for (i=0;i<larg;i++){
         a=arr[i];
-        arr[i]=arr[l-i];
-        arr[l-i]=a;
+        arr[i]=arr[l-i-1];
+        arr[l-i-1]=a;
     }
 
-    printf("%s\n",arr);
+    printf("%s",arr);
 }
