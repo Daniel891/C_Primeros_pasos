@@ -1,0 +1,6 @@
+PUNTERO:
+
+FILE *f (descriptor) = fopen("ejemplo.txt=, "r"(lo que quieres hacer (read)));
+
+                                            w - cuando se quiera escribir
+
