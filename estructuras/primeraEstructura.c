@@ -16,7 +16,7 @@ int main(){
     };
 
     int i;
-    struct ficha r;
+    struct ficha r;//r[n] n=el numero de fichas que se quieran
 
     for (i=0;i<2;i++){
         r.num=i;
@@ -26,6 +26,8 @@ int main(){
         gets(r.casa);
         fwrite (&r, sizeof(r), 1, fich);
     }
+
+    fclose(fich);
 
     /*for (i=0;i<3;i++){
         printf("%d - %s - %s\n", r[i].num,r[i].nombre,r[i].casa);
