@@ -6,14 +6,16 @@ int main (int argc, char *argv[]){
         char mac[20];
         char ip[20];
     };
-    int i;
+    
     FILE *fich;
 
     struct host r;
 
     if (argc!=3){
-        printf("ERROR:Debes introducir dos parámetros");
+        printf("ERROR:Debes introducir dos parámetros - [direcIP direcMAC]");
     }
+
+    validar que las direcciones podrian existir
 
     if ((fich = fopen("listado.dat", "ab")) == NULL){
         printf("Error en la apertura");
