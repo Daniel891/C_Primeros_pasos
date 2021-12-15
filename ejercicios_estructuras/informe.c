@@ -28,7 +28,7 @@ int main(){
         fread(&r, sizeof(r), 1, fich);
     }
 
-    printf("\n TOTAL - %D", total);
+    printf("\nTOTAL - %d", total);
 
     fclose(fich);
 
