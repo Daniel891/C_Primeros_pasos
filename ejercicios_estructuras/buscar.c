@@ -1,27 +1,38 @@
 #include <stdio.h>
 
-int main(){
-    struct ficha{
-        int num;
-        char nombre [10];
-        char casa [10];
+int main(int argc, char *argv[]){
+    struct host{
+        char mac[20];
+        char ip[20];
     };
 
-    //PARTE PARA METER EL RESULTADO EN UN FICHERO
     FILE *fich;
 
-    if ((fich= fopen("datos.dat","rb")) == NULL){
+    if (argc!=2){
+        printf("ERROR: El programa debe recibir un argumento - {direcIP} ");
+        return -1;
+    }
+
+    if ((fich= fopen("listado.dat","rb")) == NULL){
         printf("Error al abrir el fichero\n");
         return -1;
     };
 
-    int i;
-    struct ficha r;
+    int flag=0;
+    struct host r;
 
     fread(&r,sizeof(r), 1, fich);
+    
     while (! feof(fich)){
-        printf("%d: %s: %s\n", r.num, r.nombre, r.casa);
+        if (strcmp(argv[1],r.ip)==0){
+            printf("Dirección MAC asignada--> %s", r.mac);
+            flag=1;
+        }
         fread(&r, sizeof(r), 1, fich);
+    }
+
+    if (flag==0){
+        printf("La dirección IP está libre");
     }
 
     fclose(fich);

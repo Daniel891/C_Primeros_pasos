@@ -12,10 +12,11 @@ int main (int argc, char *argv[]){
     struct host r;
 
     if (argc!=3){
-        printf("ERROR:Debes introducir dos parámetros - [direcIP direcMAC]");
+        printf("ERROR:Debes introducir dos parámetros - {direcIP direcMAC}");
+        return -1;
     }
 
-    validar que las direcciones podrian existir
+    //validar que las direcciones podrian existir
 
     if ((fich = fopen("listado.dat", "ab")) == NULL){
         printf("Error en la apertura");
