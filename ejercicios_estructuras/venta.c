@@ -12,6 +12,7 @@ int main (int argc, char *argv[]){
     int cant=atoi(argv[3]);
 
     FILE *fich;
+    FILE *leerfich;
 
     struct registro r;
 
@@ -20,7 +21,16 @@ int main (int argc, char *argv[]){
         return -1;
     }
 
-    //validar que las direcciones podrian existir
+    //CONSULTA DEL FICHERO POR SI SE ESTÁ REPITIENDO EL CÓDIGO
+    leerfich=fopen("ventas.txt", "rb");
+    fread(&r,sizeof(r), 1, leerfich);
+    while (! feof(leerfich)){
+        if (strcmp(argv[1],r.codigo)==0){
+            printf("ERROR: El código introducido ya existe en el registro");
+            return -1;
+        }
+        fread(&r, sizeof(r), 1, leerfich);
+    }
 
     if ((fich = fopen("ventas.txt", "ab")) == NULL){
         printf("Error en la apertura");
@@ -33,6 +43,9 @@ int main (int argc, char *argv[]){
 
     printf("%s - %d - %d", r.codigo,r.precio, r.cantidad);
     fwrite(&r, sizeof(r), 1, fich);
+
+    fclose(fich);
+    fclose(leerfich);
 
     return 0;
 }
