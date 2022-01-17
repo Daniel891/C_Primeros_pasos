@@ -4,11 +4,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-    printf("######   PROCESO 1 ##########\N");
-    printf("Esperando.........\n");
+void controlador ();
 
-    //Espera hasta que llegue la señal
+int main(int argc, char *argv[]){
+    if (signal (SIGUSR1, controlador)== SIG_ERR){
+        perror("No se puede cambiar la señal");
+    }
 
     pause();
+}
+
+void controlador (){
+    printf("Señal interceptada\n");
+    exit(1);
 }
