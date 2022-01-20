@@ -5,14 +5,14 @@
 #include <stdlib.h>
 
 int main (int argc, char *argv[]){
-    if (argv !=2){
+    if (argc !=2){
         printf("Uso: %s pid\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     //ENVÍA LA SEÑAL SIGTERM AL PROCESO INDICADO
 
-    if ((kill(aoti(argv[1]), SIGTERM) == -1){
-        exit(EXIT_FAILURE);
+    if ((kill(atoi(argv[1]), SIGUSR1)) == -1){
+        perror("Fallo en kill");
     }
 }
